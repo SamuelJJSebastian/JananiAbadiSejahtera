@@ -586,8 +586,9 @@ h1, h2, h3, h4, .logo, .slogan {
 }
 
 .marquee {
+    --marquee-gap: 6rem;
     display: flex;
-    gap: 6rem;
+    gap: var(--marquee-gap);
     align-items: center;
     width: max-content;
     animation: scroll 40s linear infinite;
@@ -595,7 +596,7 @@ h1, h2, h3, h4, .logo, .slogan {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 3rem)); } 
+    100% { transform: translateX(calc(-50% - (var(--marquee-gap) / 2))); } 
 }
 
 .client-logo {
@@ -755,6 +756,16 @@ h1, h2, h3, h4, .logo, .slogan {
     .section-header h2 { font-size: 2.2rem; }
     .profil-image { min-height: 350px; }
     .eco-list li { font-size: 1.05rem; align-items: flex-start; }
+    
+    .marquee { 
+        --marquee-gap: 3rem; 
+        animation-duration: 25s; 
+    }
+    .client-logo { height: 45px; }
+    .client-logo.logo-large { height: 90px; }
+    .client-logo.logo-170 { height: 75px; }
+    .client-logo.logo-xlarge { height: 135px; }
+    .client-logo.logo-xxlarge { height: 180px; }
 }
 
 @media (max-width: 480px) {
@@ -763,4 +774,14 @@ h1, h2, h3, h4, .logo, .slogan {
     .stats { flex-direction: column; }
     .stat-item { width: 100%; }
     .profil-image { min-height: 250px; }
+    
+    .marquee { 
+        --marquee-gap: 2rem; 
+        animation-duration: 20s; 
+    }
+    .client-logo { height: 35px; }
+    .client-logo.logo-large { height: 70px; }
+    .client-logo.logo-170 { height: 60px; }
+    .client-logo.logo-xlarge { height: 105px; }
+    .client-logo.logo-xxlarge { height: 140px; }
 }
