@@ -586,9 +586,8 @@ h1, h2, h3, h4, .logo, .slogan {
 }
 
 .marquee {
-    --marquee-gap: 6rem;
     display: flex;
-    gap: var(--marquee-gap);
+    gap: 6rem;
     align-items: center;
     width: max-content;
     animation: scroll 40s linear infinite;
@@ -596,7 +595,21 @@ h1, h2, h3, h4, .logo, .slogan {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - (var(--marquee-gap) / 2))); } 
+    100% { transform: translateX(calc(-50% - 3rem)); } 
+}
+
+@keyframes scroll-mobile {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1.5rem)); } 
+}
+
+@keyframes scroll-mobile-small {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } 
+}
+
+.client-logo-container {
+    flex-shrink: 0;
 }
 
 .client-logo {
@@ -758,7 +771,8 @@ h1, h2, h3, h4, .logo, .slogan {
     .eco-list li { font-size: 1.05rem; align-items: flex-start; }
     
     .marquee { 
-        --marquee-gap: 3rem; 
+        gap: 3rem;
+        animation-name: scroll-mobile;
         animation-duration: 25s; 
     }
     .client-logo { height: 45px; }
@@ -776,7 +790,8 @@ h1, h2, h3, h4, .logo, .slogan {
     .profil-image { min-height: 250px; }
     
     .marquee { 
-        --marquee-gap: 2rem; 
+        gap: 2rem;
+        animation-name: scroll-mobile-small;
         animation-duration: 20s; 
     }
     .client-logo { height: 35px; }
